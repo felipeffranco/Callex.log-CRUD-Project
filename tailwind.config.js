@@ -4,7 +4,19 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor: {
+        'bgPrimary': '#08090D',
+        'bgSecondary': '#29293A',
+        'bgTertiary': '#282F33',
+      },
+    },
+    fontFamily: {
+      inter: ['Inter', 'sans-serif']
+    },
+    container: {
+      center: true,
+    },
   },
   plugins: [],
 }
