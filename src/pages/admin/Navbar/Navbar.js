@@ -9,11 +9,7 @@ const Navbar = () => {
             <div
                 className='space-y-8 w-full'>
                 {
-                    NavDB.map(link => {
-                        return (
-                            <NavItems link={link} key={link.id} />
-                        )
-                    })
+                    NavDB.map((link) => <NavItems link={link} key={link.id} />)
                 }
             </div>
         </nav>

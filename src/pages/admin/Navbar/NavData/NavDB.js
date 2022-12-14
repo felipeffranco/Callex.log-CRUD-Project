@@ -7,7 +7,7 @@ const NavDB = [
     {
         id: 0,
         title: "Home",
-        url: "/",
+        url: "/admin",
         icon: <ImHome3 className="nav-icon" />,
     },
     {
