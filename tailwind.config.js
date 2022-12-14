@@ -5,9 +5,17 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        inter: ['Inter', 'sans-serif']
+      backgroundColor: {
+        'bgPrimary': '#08090D',
+        'bgSecondary': '#29293A',
+        'bgTertiary': '#282F33',
       },
+    },
+    fontFamily: {
+      inter: ['Inter', 'sans-serif']
+    },
+    container: {
+      center: true,
     },
   },
   plugins: [],
