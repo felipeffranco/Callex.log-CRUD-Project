@@ -5,7 +5,7 @@ import NavItems from './NavItems'
 const Navbar = () => {
     return (
         <nav
-            className='bg-[#08090D] col-span-2 border-r border-gray-200 h-[100vh] w-[80px] md:w-[250px] pt-8 px-1 flex flex-col items-start justify-between'>
+            className='bg-[#08090D] border-r-2 border-emerald-300 h-[95vh] w-[80px] md:w-[225px] pt-8 px-1'>
             <div
                 className='space-y-8 w-full'>
                 {

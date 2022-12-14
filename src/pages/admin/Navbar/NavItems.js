@@ -10,7 +10,7 @@ const NavItems = ({ link }) => {
         <Link to={link.url}
             onClick={() => setClicked(link.id)}
             key={link.id}
-            className='w-full flex items-center justify-start space-x-8 px-5 cursor-pointer border-transparent'>
+            className='w-full flex items-center justify-start space-x-6 px-6 cursor-pointer'>
             <span>
                 {link.icon}
             </span>
