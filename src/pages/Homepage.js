@@ -5,10 +5,17 @@ import { Link } from 'react-router-dom';
 
 import Trusted1 from './img/cloudflare.svg';
 import Trusted2 from './img/codecademy.svg';
+<<<<<<< HEAD
 import Trusted3 from './img/apple.svg';
 import Trusted4 from './img/jp-morgan.svg';
 import Trusted5 from './img/razer.svg';
 import Trusted6 from './img/google.svg';
+=======
+import Trusted3 from './img/corsair.svg';
+import Trusted4 from './img/jp-morgan.svg';
+import Trusted5 from './img/razer.svg';
+import Trusted6 from './img/youtube-premium.svg';
+>>>>>>> main
 
 function Homepage() {
   return (
@@ -28,26 +35,25 @@ function Homepage() {
               Talk with us
             </Link>
           </div>
-
-          <div className="flex flex-col items-center container mt-20 px-20 text-gray-300">
+          <div className="flex flex-col items-center container mt-20 px-20 text-white">
             <h4 className="mb-6">Trusted by the world’s leading organizations</h4>
             <ul className="flex mb-20 justify-center items-center">
-              <li className="mr-16">
-                <img src={Trusted1} width="150" heigth="150" alt="img1" className="fill-gray-50"></img>
+              <li className="mr-10">
+                <img src={Trusted1} width="150" heigth="150" alt="img1" className="bg-white"></img>
               </li>
-              <li className="mr-16">
+              <li className="mr-10">
                 <img src={Trusted2} width="150" heigth="150" alt="img2" className="grayscale"></img>
               </li>
-              <li className="mr-16">
-                <img src={Trusted3} width="50" heigth="50" alt="img3" className="grayscale"></img>
+              <li className="mr-10">
+                <img src={Trusted3} width="150" heigth="150" alt="img3" className="grayscale"></img>
               </li>
-              <li className="mr-16">
+              <li className="mr-10">
                 <img src={Trusted4} width="150" heigth="150" alt="img4" className="grayscale"></img>
               </li>
-              <li className="mr-16">
+              <li className="mr-10">
                 <img src={Trusted5} width="150" heigth="150" alt="img5" className="grayscale"></img>
               </li>
-              <li className="flex">
+              <li>
                 <img src={Trusted6} width="150" heigth="150" alt="img6" className="grayscale"></img>
               </li>
             </ul>
