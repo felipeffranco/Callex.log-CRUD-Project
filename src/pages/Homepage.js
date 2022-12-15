@@ -1,7 +1,8 @@
 import './Homepage.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import apple from 'https://w7.pngwing.com/pngs/410/972/png-transparent-apple-brand-logo-macintosh-apple-icon-format-icon-apple-grey-logo-angle-text-heart.png';
 
 function Homepage() {
   return (
@@ -21,8 +22,13 @@ function Homepage() {
               Talk with us
             </Link>
           </div>
-          <div className="flex flex-col items-center container mt-20 px-20">
-
+          <div className="flex flex-col items-center container mt-20 px-20 text-white">
+            <h4>Trusted by the world’s leading organizations</h4>
+            <ul className="flex">
+              <li>
+                <img src={apple}></img>
+              </li>
+            </ul>
           </div> 
         </div>
 

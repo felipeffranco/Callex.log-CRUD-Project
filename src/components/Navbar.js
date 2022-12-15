@@ -28,23 +28,23 @@ function Navbar() {
               Services
             </Link>
           </div>
-          <div className="mt-2">
+          <div className="mt-2 mr-4">
             <Link to="/admin" className="text-sm uppercase text-emerald-300 hover:bg-emerald-600 hover:text-white border-solid border p-2 px-8 rounded-xl border-emerald-300 hover:border-emerald-600 transition-all ease-linear">
               Login
             </Link>
           </div>
-          <div className="py-1">
+          <div className="py-1 mt-1">
             <Switch
               checked={enabled}
               onChange={setEnabled}
-              className={`${enabled ? 'bg-teal-900' : 'bg-teal-700'}
-                relative inline-flex h-[28px] w-[55px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
+              className={`${enabled ? 'bg-emerald-300' : 'bg-emerald-800'}
+                relative inline-flex h-[29px] w-[55px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
             >
               <span className="sr-only">Use setting</span>
               <span
                 aria-hidden="true"
-                className={`${enabled ? 'translate-x-9' : 'translate-x-0'}
-                  pointer-events-none inline-block h-[24px] w-[24px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
+                className={`${enabled ? 'translate-x-6' : 'translate-x-0'}
+                  pointer-events-none inline-block h-[25px] w-[25px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
               />
             </Switch>
           </div>
