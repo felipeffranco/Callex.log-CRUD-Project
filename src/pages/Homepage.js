@@ -5,17 +5,10 @@ import { Link } from 'react-router-dom';
 
 import Trusted1 from './img/cloudflare.svg';
 import Trusted2 from './img/codecademy.svg';
-<<<<<<< HEAD
 import Trusted3 from './img/apple.svg';
 import Trusted4 from './img/jp-morgan.svg';
 import Trusted5 from './img/razer.svg';
 import Trusted6 from './img/google.svg';
-=======
-import Trusted3 from './img/corsair.svg';
-import Trusted4 from './img/jp-morgan.svg';
-import Trusted5 from './img/razer.svg';
-import Trusted6 from './img/youtube-premium.svg';
->>>>>>> main
 
 function Homepage() {
   return (
