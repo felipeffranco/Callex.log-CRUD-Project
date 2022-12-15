@@ -25,7 +25,7 @@ function Navbar() {
             </Link>
           </div>
           <div className="mt-2">
-            <Link to="/admin" className="text-sm uppercase text-emerald-300 hover:bg-emerald-600 hover:text-white border-solid border p-2 px-8 rounded-xl border-emerald-300 hover:border-emerald-600 transition-all ease-linear animate-pulse">
+            <Link to="/admin" className="text-sm uppercase text-emerald-300 hover:bg-emerald-600 hover:text-white border-solid border p-2 px-8 rounded-xl border-emerald-300 hover:border-emerald-600 transition-all ease-linear">
               Login
             </Link>
           </div>

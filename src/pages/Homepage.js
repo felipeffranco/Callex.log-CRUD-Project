@@ -17,7 +17,7 @@ function Homepage() {
             <h2 className="text-2xl mt-6 px-60 text-white text-center leading-snug">
               Procure freight faster by standardizing and automating the process of requesting quotes, comparing rates, and booking freight.
             </h2>
-            <Link className="mt-12 px-24 py-6 text-2xl rounded-xl bg-gradient-to-r from-lime-200 to-emerald-400" to="/modal">
+            <Link className="mt-12 px-24 py-6 text-2xl rounded-xl bg-gradient-to-r from-lime-200 to-emerald-400 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-lime-200 transition-all ease-linear" to="/modal">
               Talk with us
             </Link>
           </div>
