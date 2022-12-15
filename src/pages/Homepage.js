@@ -8,7 +8,7 @@ function Homepage() {
     <div className="flex flex-col">
         <Navbar />
 
-        <div className="flex min-h-screen">
+        <div className="flex flex-col min-h-screen">
           <div className="flex flex-col items-center container mt-20 px-20">
             <h1 className="text-7xl font-bold text-white text-center leading-tight">
               Reduce quoting time by <span className="bg-clip-text text-transparent bg-gradient-to-r from-lime-200 to-emerald-400">90%</span><br></br>
@@ -21,6 +21,9 @@ function Homepage() {
               Talk with us
             </Link>
           </div>
+          <div className="flex flex-col items-center container mt-20 px-20">
+
+          </div> 
         </div>
 
         <Footer />
