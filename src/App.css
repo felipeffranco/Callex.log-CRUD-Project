@@ -1,14 +1,14 @@
 .gradientGreen {
-    background: radial-gradient(1134.35% 1033.06% at 82.95% 96.13%,rgba(88,255,195,0) 0%,#53e885 25.52%,rgba(81,242,97,.6) 47.4%,#57ffc3 81.77%,#89fcd3 100%);
-    opacity: .5;
-    top: -220px;
-    filter: blur(219px);
-    -webkit-filter: blur(219px);
-    -moz-filter: blur(219px);
-    transform: matrix(-.99,-.12,-.12,.99,0,0);
-    z-index: -999999;
-    overflow: hidden;
-    width: 96%;
-    height: 780px;
-    position: absolute;
+  background: radial-gradient(1134.35% 1033.06% at 82.95% 96.13%,rgba(88,255,195,0) 0%,#53e885 25.52%,rgba(81,242,97,.6) 47.4%,#57ffc3 81.77%,#89fcd3 100%);
+  opacity: .5;
+  top: -220px;
+  filter: blur(219px);
+  -webkit-filter: blur(219px);
+  -moz-filter: blur(219px);
+  transform: matrix(-.99,-.12,-.12,.99,0,0);
+  z-index: -999999;
+  overflow: hidden;
+  width: 96%;
+  height: 780px;
+  position: absolute;
 }
