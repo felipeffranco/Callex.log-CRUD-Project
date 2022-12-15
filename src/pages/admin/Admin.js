@@ -3,15 +3,12 @@ import React from 'react'
 import Dashboard from './Dashboard/Dashboard'
 import AboutUs from './AboutUs/AboutUs'
 
-
 const Admin = () => {
     return (
-        <>
-            <Routes>
-                <Route path="/" element={<Dashboard />} />
-                <Route path="/about-us" element={<AboutUs />} />
-            </Routes>
-        </>
+        <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/about-us" element={<AboutUs />} />
+        </Routes>
     )
 }
 
