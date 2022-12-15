@@ -2,7 +2,6 @@ import './Homepage.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
-import apple from 'https://w7.pngwing.com/pngs/410/972/png-transparent-apple-brand-logo-macintosh-apple-icon-format-icon-apple-grey-logo-angle-text-heart.png';
 
 function Homepage() {
   return (
@@ -26,7 +25,7 @@ function Homepage() {
             <h4>Trusted by the world’s leading organizations</h4>
             <ul className="flex">
               <li>
-                <img src={apple}></img>
+                
               </li>
             </ul>
           </div> 
