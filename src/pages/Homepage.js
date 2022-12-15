@@ -32,7 +32,7 @@ function Homepage() {
             <h4 className="mb-6">Trusted by the world’s leading organizations</h4>
             <ul className="flex mb-20 justify-center items-center">
               <li className="mr-10">
-                <img src={Trusted1} width="150" heigth="150" alt="img1" className="grayscale"></img>
+                <img src={Trusted1} width="150" heigth="150" alt="img1" className="bg-white"></img>
               </li>
               <li className="mr-10">
                 <img src={Trusted2} width="150" heigth="150" alt="img2" className="grayscale"></img>
