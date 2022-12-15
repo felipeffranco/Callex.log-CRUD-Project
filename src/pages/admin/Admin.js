@@ -1,15 +1,16 @@
+import { Routes, Route } from 'react-router-dom'
 import React from 'react'
-import Header from './Header/Header'
-import HomePage from './HomePage/HomePage'
-import Navbar from './Navbar/Navbar'
+import Dashboard from './Dashboard/Dashboard'
+import AboutUs from './AboutUs/AboutUs'
 
 
 const Admin = () => {
     return (
         <>
-            <Header />
-            <Navbar />
-            <HomePage />
+            <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/about-us" element={<AboutUs />} />
+            </Routes>
         </>
     )
 }
