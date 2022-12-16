@@ -8,9 +8,9 @@ import Services from "./pages/Services";
 
 function App() {
   return (
-    <div className=""> 
+    <div className="">
       <div className="gradientGreen"></div>
-      
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about-us" element={<AboutUs />} />
