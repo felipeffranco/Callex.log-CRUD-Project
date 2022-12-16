@@ -10,8 +10,6 @@ import Trusted4 from "./img/jp-morgan.svg";
 import Trusted5 from "./img/razer.svg";
 import Trusted6 from "./img/google.svg";
 
-import {Tabs} from "flowbite-react";
-
 function Homepage() {
   return (
     <div className="flex flex-col">
@@ -101,33 +99,8 @@ function Homepage() {
           </ul>
         </div>
 
-        <div className="flex flex-col items-center container mb-20 px-20 text-gray-300">
-          <Tabs.Group
-            aria-label="Default tabs"
-            style="default"
-          >
-            <Tabs.Item
-              active={true}
-              title="Profile"
-            >
-              Profile content
-            </Tabs.Item>
-            <Tabs.Item title="Dashboard">
-              Dashboard content
-            </Tabs.Item>
-            <Tabs.Item title="Settings">
-              Settings content
-            </Tabs.Item>
-            <Tabs.Item title="Contacts">
-              Contacts content
-            </Tabs.Item>
-            <Tabs.Item
-              disabled={true}
-              title="Disabled"
-            >
-              Disabled content
-            </Tabs.Item>
-          </Tabs.Group>
+        <div className="flex flex-col container mb-20 px-20 text-gray-300">
+        
         </div>
       </div>
 
