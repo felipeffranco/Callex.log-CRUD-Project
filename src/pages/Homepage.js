@@ -99,6 +99,10 @@ function Homepage() {
           </ul>
         </div>
 
+        <div id="tabs" className="flex flex-col container mb-20 px-20 text-gray-300">
+        
+        </div>
+
         <div className="flex flex-col container mb-20 px-20 text-gray-300">
         
         </div>
