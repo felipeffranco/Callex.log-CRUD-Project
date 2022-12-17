@@ -57,9 +57,11 @@ function useTilt(active) {
   return ref;
 }
 
+
 const initialState = {
   slideIndex: 0
 };
+
 
 const slidesReducer = (state, event) => {
   if (event.type === "NEXT") {
