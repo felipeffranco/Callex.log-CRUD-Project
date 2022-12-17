@@ -36,6 +36,7 @@ const Dashboard = () => {
         axios.post(`${process.env.REACT_APP_API_URL}/CL_homepage`, newEdit)
             .then(response => {
                 navigate('/admin')
+                window.location.reload()
             })
             .catch(err => console.log(err))
 
@@ -174,7 +175,7 @@ const Dashboard = () => {
                                             </td>
                                             <td className="py-4 px-6">
                                                 <div className="w-40 m-auto">
-                                                    <img src={item.imageUrl} alt="homepage-image" className="h-24 m-auto"/>
+                                                    <img src={item.imageUrl} alt="homepage-img" className="h-24 m-auto" />
                                                 </div>
 
                                             </td>
@@ -191,9 +192,3 @@ const Dashboard = () => {
 }
 
 export default Dashboard
-
-
-
-    // <td td className="py-4 px-6 text-center" >
-    //     <Link to="#" className="font-bold text-emerald-300 hover:text-black ">Edit</Link>
-    //                             </td >
