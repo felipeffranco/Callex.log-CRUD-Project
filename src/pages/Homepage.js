@@ -29,7 +29,7 @@ function Homepage() {
             </span>
           </h1>
           <h2 className="text-2xl mt-6 px-60 text-white text-center leading-snug">
-            Procure freight faster by standardizing and automating the process
+            Your freight faster by standardizing and automating the process
             of requesting quotes, comparing rates, and booking freight.
           </h2>
           <Link
@@ -39,7 +39,7 @@ function Homepage() {
             Talk with us
           </Link>
         </div>
-        <div className="flex flex-col items-center container mt-20 px-20 text-white">
+        <div className="flex flex-col items-center container mt-20 px-20 text-gray-500">
           <h4 className="mb-6">Trusted by the world’s leading organizations</h4>
           <ul className="flex mb-20 justify-center items-center">
             <li className="mr-10">
@@ -99,12 +99,45 @@ function Homepage() {
           </ul>
         </div>
 
-        <div id="tabs" className="flex flex-col container mb-20 px-20 text-gray-300">
-        
+        <div id="tabs" className="text-center flex flex-col container mb-20 px-20 text-gray-300">
+          <h2 class="bg-white text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
+            TAB CRUD
+          </h2>
         </div>
 
-        <div className="flex flex-col container mb-20 px-20 text-gray-300">
-        
+        <div className="flex container mb-20 px-20">
+          <div className="flex flex-col mr-10">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
+              Fastest delivery<br></br> in Brazil
+            </h2>
+            <p class="text-gray-500">
+              The walnut wood card tray is precision milled to perfectly fit a stack of Focus cards. 
+            </p>
+          </div>
+          <div className="flex flex-col mr-10">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
+              Professional service
+            </h2>
+            <p class="text-gray-500">
+            The service demands experience, ingenuity and professionalism from every level of management.
+            </p>
+          </div>
+          <div className="flex flex-col mr-10">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
+              Biggest ships<br></br>of the world
+            </h2>
+            <p class="text-gray-500">
+              The walnut wood card tray is precision milled to perfectly fit a stack of Focus cards. 
+            </p>
+          </div>
+          <div className="flex flex-col">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
+              Full ship<br></br>service
+            </h2>
+            <p class="text-gray-500">
+            The service demands experience, ingenuity and professionalism from every level of management.
+            </p>
+          </div>
         </div>
       </div>
 
