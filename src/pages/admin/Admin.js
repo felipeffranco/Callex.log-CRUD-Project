@@ -11,6 +11,7 @@ const Admin = () => {
         <>
             <Routes>
                 <Route path="/admin" element={<Dashboard />} />
+                <Route path="/admin/:itemId/edit" element={<Dashboard />} />
                 <Route path="/admin/about-us" element={<AboutUs />} />
                 <Route path="/admin/containers" element={<Containers />} />
                 <Route path="/admin/services" element={<Services />} />
