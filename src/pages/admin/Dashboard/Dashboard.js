@@ -1,8 +1,8 @@
 import React from "react"
 import Navbar from "../Navbar/Navbar"
 import { useState, useEffect } from "react"
-import axios from "axios"
-import { useNavigate, Link } from "react-router-dom"
+import axios, { Axios } from "axios"
+import { useNavigate, Link, useParams } from "react-router-dom"
 
 const Dashboard = () => {
 
@@ -11,40 +11,95 @@ const Dashboard = () => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [imageUrl, setImageUrl] = useState('')
+    const [refresh, setRefresh] = useState(false)
 
     const navigate = useNavigate()
+    const { itemId } = useParams()
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/CL_homepage`)
             .then(response => {
                 setData(response.data)
-
             })
             .catch(err => console.log(err))
-    }, [])
+    }, [refresh])
 
-    const handleSubmit = e => {
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_URL}/CL_homepage/${itemId}`)
+            .then(response => {
+
+                let {
+                    name,
+                    title,
+                    description,
+                    imageUrl
+                } = response.data
+
+                setName(name)
+                setTitle(title)
+                setDescription(description)
+                setImageUrl(imageUrl)
+                setRefresh(!refresh)
+            })
+    }, [itemId])
+
+    const newFormButton = e => {
         e.preventDefault()
 
-        const newEdit = {
+        const newForm = {
             name,
             title,
             description,
             imageUrl
         }
 
-        axios.post(`${process.env.REACT_APP_API_URL}/CL_homepage`, newEdit)
+        axios.post(`${process.env.REACT_APP_API_URL}/CL_homepage`, newForm)
             .then(response => {
                 navigate('/admin')
-                window.location.reload()
+                setRefresh(!refresh)
             })
             .catch(err => console.log(err))
-
 
         setName('')
         setTitle('')
         setDescription('')
         setImageUrl('')
+    }
+
+    const clearButton = e => {
+        e.preventDefault()
+
+        setName('')
+        setTitle('')
+        setDescription('')
+        setImageUrl('')
+    }
+
+
+    const editButton = e => {
+        e.preventDefault()
+
+        const updatedItem = {
+            name,
+            title,
+            description,
+            imageUrl
+        }
+
+        axios.put(`${process.env.REACT_APP_API_URL}/CL_homepage/${itemId}`, updatedItem)
+        .then(response => {
+            alert('Update Successfull')
+            setRefresh(!refresh)
+        })
+        .catch(err => console.log(err))
+    }
+
+    const deleteButton = itemId => {
+        axios.delete(`${process.env.REACT_APP_API_URL}/CL_homepage/${itemId}`)
+            .then(response => {
+                setRefresh(!refresh)
+            })
+            .catch(err => console.log(err))
     }
 
     return (
@@ -68,7 +123,7 @@ const Dashboard = () => {
                                 </div>
                             </div>
                             <div className="sm:col-span-2 sm:mt-0 border border-gray-700 rounded-xl">
-                                <form onSubmit={handleSubmit}>
+                                <form>
                                     <div className="space-y-5 bg-bgPrimary px-5 py-5 rounded-t-xl">
                                         <div>
                                             <label className="text-xl font-bold text-white">
@@ -126,12 +181,29 @@ const Dashboard = () => {
                                             />
                                         </div>
                                     </div>
-                                    <div className="flex justify-end space-x-4 bg-bgPrimary rounded-b-xl px-4 py-2 text-right sm:px-6">
+                                    <div className="flex justify-end bg-bgPrimary rounded-b-xl px-4 py-2 text-right sm:px-6">
+                                        <div>
+                                            <button
+                                                type="button"
+                                                onClick={editButton}
+                                                className='text-black font-medium rounded-md mb-3 mr-3 py-2 px-4 bg-blue-300 hover:bg-blue-200'
+                                            >
+                                                Save Edit
+                                            </button>
+                                        </div>
                                         <button
-                                            type="submit"
-                                            className=" rounded-xl border border-emerald-300 bg-transparent mb-3 py-2 px-10 text-xl font-bold text-emerald-300 hover:bg-emerald-300 hover:text-black focus:outline-none"
+                                            type="button"
+                                            onClick={newFormButton}
+                                            className='text-black font-medium rounded-md mb-3 mr-3 py-2 px-4 bg-emerald-300 hover:bg-emerald-200'
                                         >
-                                            Edit
+                                            Save New Form
+                                        </button>
+                                        <button
+                                            type="button"
+                                            onClick={clearButton}
+                                            className='text-white font-medium rounded-md mb-3 mr-3 py-2 px-4 bg-gray-900 hover:bg-gray-800'
+                                        >
+                                            Clear
                                         </button>
                                     </div>
                                 </form>
@@ -141,7 +213,7 @@ const Dashboard = () => {
                 </div>
             </section>
             <section className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8 px-4">
-                <div className="sm:grid sm:grid-cols-1 sm:gap-6 bg-bgPrimary overflow-x-auto relative shadow-md sm:rounded-lg border border-gray-700">
+                <div className="sm:grid sm:grid-cols-1 sm:gap-6 bg-bgPrimary overflow-x-auto relative shadow-md rounded-lg border border-gray-700">
                     <table className="w-full text-sm text-center bg-bgPrimary dark:text-gray-400">
                         <thead className="text-md text-white capitalize bg-gray-900 bg-opacity-40 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
@@ -160,27 +232,46 @@ const Dashboard = () => {
                             </tr>
                         </thead>
                         {
-                            data.length && data.map(item => {
+                            data.length && data.map((item, _id) => {
                                 return (
-                                    <tbody>
-                                        <tr className="text-white font-bold dark:bg-gray-800 dark:border-gray-700 hover:bg-emerald-300 hover:text-black dark:hover:bg-gray-600">
-                                            <th scope="row" className="py-4 px-6 font-bold dark:text-white">
-                                                {item.name}
-                                            </th>
-                                            <td className="py-4 px-6 font-medium">
-                                                {item.title}
-                                            </td>
-                                            <td className="py-4 px-6 font-light">
-                                                {item.description}
-                                            </td>
-                                            <td className="py-4 px-6">
-                                                <div className="w-40 m-auto">
-                                                    <img src={item.imageUrl} alt="homepage-img" className="h-24 m-auto" />
-                                                </div>
-
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                    <>
+                                        <tbody>
+                                            <tr className="text-white font-bold dark:bg-gray-900 dark:border-gray-700 hover:bg-gray-800 bg-opacity-40 hover:text-black dark:hover:bg-gray-600">
+                                                <th scope="row" className="py-4 px-6 font-bold dark:text-white">
+                                                    {item.name}
+                                                </th>
+                                                <td className="py-4 px-6 font-medium">
+                                                    {item.title}
+                                                </td>
+                                                <td className="py-4 px-6 font-light">
+                                                    {item.description}
+                                                </td>
+                                                <td className="py-4 px-1">
+                                                    <div className="w-40 m-auto">
+                                                        <img src={item.imageUrl} alt="homepage-img" className="h-24 m-auto" />
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div className="space-x-3 flex justify-center align-middle mr-3 ml-3">
+                                                        <Link to={`/admin/${item._id}/edit`}>
+                                                            <button
+                                                                type="submit"
+                                                                className='text-black font-medium rounded-md mb-3 py-2 px-4 bg-blue-300 hover:bg-blue-200'
+                                                            >
+                                                                Edit
+                                                            </button>
+                                                        </Link>
+                                                        <button
+                                                            type="submit"
+                                                            className='text-black font-medium rounded-md mb-3 py-2 px-4 bg-red-300 hover:bg-red-200'
+                                                            onClick={() => deleteButton(item._id)}>
+                                                            Delete
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </>
                                 )
                             })
                         }

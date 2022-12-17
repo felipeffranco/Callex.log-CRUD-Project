@@ -5,11 +5,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 import { navigation } from '../DB/navigation'
 import { user } from '../DB/user'
-
-const userNavigation = [
-    { name: 'Profile', to: '/admin/profile-info' },
-    { name: 'Sign out', to: '/sign-out' },
-]
+import { userNavigation } from '../DB/userNavigation'
 
 const Navbar = () => {
 
@@ -82,8 +78,7 @@ const Navbar = () => {
                                         </div>
                                     </div>
                                     <div className="-mr-2 flex md:hidden">
-
-                                        <Disclosure.Button className="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                                        <Disclosure.Button className="inline-flex items-center justify-center rounded-md bg-emerald-300 hover:bg-emerald-200 p-2 text-black focus:ring-offset-gray-800">
                                             <span className="sr-only">Open main menu</span>
                                             {open ? (
                                                 <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -94,7 +89,6 @@ const Navbar = () => {
                                     </div>
                                 </div>
                             </div>
-
                             <Disclosure.Panel className="sm:hidden">
                                 <div className="flex flex-col space-y-1 px-2 pt-2 pb-3 sm:px-3 ">
                                     {navigation.map((item) => (
