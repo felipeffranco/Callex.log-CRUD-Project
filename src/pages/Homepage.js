@@ -3,7 +3,7 @@ import "./Homepage.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 
 import Trusted1 from "./img/cloudflare.svg";
 import Trusted2 from "./img/codecademy.svg";
@@ -17,7 +17,7 @@ const apiEndpoint = "https://ironrest.cyclic.app/CL_homepage";
 
 const Homepage = () => {
   const [banners, setBanners] = useState([])
-
+ 
   useEffect(() =>{
     const apiCall = async () => {
         const res = await axios.get(apiEndpoint)
@@ -26,26 +26,34 @@ const Homepage = () => {
     apiCall()
   }, [])
 
-  const theBanner = banners.map((banner, index) => { 
-    return (
-      <div key={index}>
-          <h1>key={banner._id}</h1>
-          <h2>{banner.name}</h2>
-          <h3>{banner.title}</h3>
-          <h4>{banner.description}</h4>
-          <img src={banner.imageUrl} alt={banner.titler}></img>
-      
-      </div>
-    )
+  const theBanner = banners.map((banner) => { 
+    if(banner.imageUrl === "") { 
+      return null; 
+    }
+    else {
+      return (
+        <>
+          <div key={banner._id} className="flex flex-col flex-auto mb-10 mr-4">
+            <div className="w-28 sm:w-96 h-24 sm:h-56 bg-cover mb-4 rounded-lg hover:grayscale" style={{backgroundImage: `url(${banner.imageUrl})`}}></div>
+            <h2 className="font-bold text-2xl text-emerald-300 mb-1">
+              {banner.name}
+            </h2>
+            <p className="text-sm">
+              {banner.description}
+            </p> 
+          </div>
+        </>
+      )
+    }
   })
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col overflow-hidden">
       <Navbar />
 
       <div className="flex flex-col min-h-screen">
-        <div className="flex flex-col items-center container mt-20 px-20">
-          <h1 className="text-7xl font-bold text-white text-center leading-tight">
+        <div className="flex flex-col items-center container mt-10 sm:mt-20 mb-20 px-8 sm:px-20">
+          <h1 className="sm:text-7xl font-bold text-white text-center leading-tight text-2xl">
             Reduce quoting time by{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-lime-200 to-emerald-400">
               90%
@@ -56,30 +64,28 @@ const Homepage = () => {
               20%
             </span>
           </h1>
-          <h2 className="text-2xl mt-6 px-60 text-white text-center leading-snug">
+          <h2 className="sm:text-2xl text-sm mt-6 sm:px-60 px-8 text-white text-center leading-snug">
             Your freight faster by standardizing and automating the process
             of requesting quotes, comparing rates, and booking freight.
           </h2>
           <Link
-            className="mt-12 px-24 py-6 text-2xl rounded-xl bg-gradient-to-r from-lime-200 to-emerald-400 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-lime-200 transition-all ease-linear"
+            className="mt-12 sm:px-24 px-14 sm:py-6 py-4 sm:text-2xl text-lg rounded-xl bg-gradient-to-r from-lime-200 to-emerald-400 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-lime-200 transition-all ease-linear"
             to="/modal"
           >
             Talk with us
           </Link>
         </div>
-        <div className="flex flex-col items-center container mt-20 px-20 text-gray-500">
+        <div className="flex flex-col items-center container mb-32 px-20 text-gray-500 text-center">
           <h4 className="mb-6">Trusted by the world’s leading organizations</h4>
-          <ul className="flex mb-20 justify-center items-center">
-            <li className="mr-10">
+          <ul className="flex justify-center items-center flex-wrap">
+            <li className="flex w-auto mb-10 px-10 flex-auto justify-center items-center">
               <img
                 src={Trusted1}
-                width="150"
-                heigth="150"
                 alt="img1"
-                className="grayscale"
+                className="grayscale w-40 h-20"
               ></img>
             </li>
-            <li className="mr-10">
+            <li className="flex w-auto mb-10 px-10 flex-auto justify-center items-center">
               <img
                 src={Trusted2}
                 width="150"
@@ -88,7 +94,7 @@ const Homepage = () => {
                 className="grayscale"
               ></img>
             </li>
-            <li className="mr-10">
+            <li className="flex w-auto mb-10 px-10 flex-auto justify-center items-center">
               <img
                 src={Trusted3}
                 width="50"
@@ -97,7 +103,7 @@ const Homepage = () => {
                 className="grayscale"
               ></img>
             </li>
-            <li className="mr-10">
+            <li className="flex w-auto mb-10 px-10 flex-auto justify-center items-center">
               <img
                 src={Trusted4}
                 width="150"
@@ -106,7 +112,7 @@ const Homepage = () => {
                 className="grayscale"
               ></img>
             </li>
-            <li className="mr-10">
+            <li className="flex w-auto mb-10 px-10 flex-auto justify-center items-center">
               <img
                 src={Trusted5}
                 width="150"
@@ -115,7 +121,7 @@ const Homepage = () => {
                 className="grayscale"
               ></img>
             </li>
-            <li>
+            <li className="flex w-auto mb-10 px-10">
               <img
                 src={Trusted6}
                 width="150"
@@ -127,14 +133,22 @@ const Homepage = () => {
           </ul>
         </div>
 
-        <div id="tabs" className="text-center flex flex-col container mb-20 px-20 text-gray-300">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
-            {theBanner}  
+        <div className="mb-10">
+          <h2 className="sm:text-6xl text-3xl font-bold text-white text-center leading-tight">
+            Our {" "}
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-lime-200 to-emerald-400">
+              best services
+            </span>
           </h2>
         </div>
 
-        <div className="flex container mb-20 px-20">
-          <div className="flex flex-col mr-10">
+        <div id="tabs" className="text-left flex flex-row container flex-wrap mb-20 px-4 text-gray-300 sm:px-20">
+          {theBanner}
+        </div>
+
+        <div className="flex container mb-32 px-20 flex-wrap sm:flex-nowrap">
+
+          <div className="flex flex-col mr-10 mb-10 flex-auto">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
               Fastest delivery<br></br> in Brazil
             </h2>
@@ -142,7 +156,8 @@ const Homepage = () => {
               The walnut wood card tray is precision milled to perfectly fit a stack of Focus cards. 
             </p>
           </div>
-          <div className="flex flex-col mr-10">
+          
+          <div className="flex flex-col mr-10 mb-10">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
               Professional service
             </h2>
@@ -150,7 +165,8 @@ const Homepage = () => {
             The service demands experience, ingenuity and professionalism from every level of management.
             </p>
           </div>
-          <div className="flex flex-col mr-10">
+          
+          <div className="flex flex-col mr-10 mb-10">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
               Biggest ships<br></br>of the world
             </h2>
@@ -158,6 +174,7 @@ const Homepage = () => {
               The walnut wood card tray is precision milled to perfectly fit a stack of Focus cards. 
             </p>
           </div>
+          
           <div className="flex flex-col">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
               Full ship<br></br>service

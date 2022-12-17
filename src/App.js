@@ -8,7 +8,7 @@ import Services from "./pages/Services";
 
 function App() {
   return (
-    <div className="">
+    <div className="overflow-hidden">
       <div className="gradientGreen"></div>
 
       <Routes>
