@@ -75,7 +75,6 @@ const Dashboard = () => {
         setImageUrl('')
     }
 
-
     const editButton = e => {
         e.preventDefault()
 
@@ -182,6 +181,13 @@ const Dashboard = () => {
                                         </div>
                                     </div>
                                     <div className="flex justify-end bg-bgPrimary rounded-b-xl px-4 py-2 text-right sm:px-6">
+                                        <button
+                                            type="button"
+                                            onClick={clearButton}
+                                            className='text-white font-medium rounded-md mb-3 mr-3 py-2 px-4 bg-gray-900 hover:bg-gray-800'
+                                        >
+                                            Clear
+                                        </button>
                                         <div>
                                             <button
                                                 type="button"
@@ -196,15 +202,9 @@ const Dashboard = () => {
                                             onClick={newFormButton}
                                             className='text-black font-medium rounded-md mb-3 mr-3 py-2 px-4 bg-emerald-300 hover:bg-emerald-200'
                                         >
-                                            Save New Form
+                                            Save new item
                                         </button>
-                                        <button
-                                            type="button"
-                                            onClick={clearButton}
-                                            className='text-white font-medium rounded-md mb-3 mr-3 py-2 px-4 bg-gray-900 hover:bg-gray-800'
-                                        >
-                                            Clear
-                                        </button>
+                                        
                                     </div>
                                 </form>
                             </div>
@@ -228,6 +228,9 @@ const Dashboard = () => {
                                 </th>
                                 <th className="py-4 px-8">
                                     Image
+                                </th>
+                                <th className="py-4 px-8">
+                                    
                                 </th>
                             </tr>
                         </thead>
