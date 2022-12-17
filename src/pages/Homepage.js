@@ -13,113 +13,9 @@ import Trusted5 from "./img/razer.svg";
 import Trusted6 from "./img/google.svg";
 
 import axios from "axios";
-const apiEndpoint = "https://ironrest.cyclic.app/CL_homepage"
-
-function useTilt(active) {
-  const ref = React.useRef(null);
-
-  React.useEffect(() => {
-    if (!ref.current || !active) {
-      return;
-    }
-
-    const state = {
-      rect: undefined,
-      mouseX: undefined,
-      mouseY: undefined
-    };
-
-    let el = ref.current;
-
-    const handleMouseMove = (e) => {
-      if (!el) {
-        return;
-      }
-      if (!state.rect) {
-        state.rect = el.getBoundingClientRect();
-      }
-      state.mouseX = e.clientX;
-      state.mouseY = e.clientY;
-      const px = (state.mouseX - state.rect.left) / state.rect.width;
-      const py = (state.mouseY - state.rect.top) / state.rect.height;
-
-      el.style.setProperty("--px", px);
-      el.style.setProperty("--py", py);
-    };
-
-    el.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      el.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, [active]);
-
-  return ref;
-}
-
-const initialState = {
-  slideIndex: 0
-};
-
-const slidesReducer = (state, event) => {
-  if (event.type === "NEXT") {
-    return {
-      ...state,
-      slideIndex: (state.slideIndex + 1) % apiEndpoint.length
-    };
-  }
-  if (event.type === "PREV") {
-    return {
-      ...state,
-      slideIndex:
-        state.slideIndex === 0 ? apiEndpoint.length - 1 : state.slideIndex - 1
-    };
-  }
-};
-
-function Slide({ slide, offset }) {
-  const active = offset === 0 ? true : null;
-  const ref = useTilt(active);
-
-  return (
-    <div
-      ref={ref}
-      className="slide"
-      data-active={active}
-      style={{
-        "--offset": offset,
-        "--dir": offset === 0 ? 0 : offset > 0 ? 1 : -1
-      }}
-    >
-      <div
-        className="slideBackground"
-        style={{
-          backgroundImage: `url('${slide.imageUrl}')`
-        }}
-      />
-      <div
-        className="slideContent"
-        style={{
-          backgroundImage: `url('${slide.imageUrl}')`
-        }}
-      >
-        <div className="slideContentInner">
-          <h2 className="slideTitle">{slide.name}</h2>
-          <h3 className="slideSubtitle">{slide.title}</h3>
-          <p className="slideDescription">{slide.description}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-
-
-
-
+const apiEndpoint = "https://ironrest.cyclic.app/CL_homepage";
 
 const Homepage = () => {
-
   const [banners, setBanners] = useState([])
 
   useEffect(() =>{
@@ -129,21 +25,19 @@ const Homepage = () => {
     }
     apiCall()
   }, [])
-/*
-  const theBanner = banners.map((banner) => { 
+
+  const theBanner = banners.map((banner, index) => { 
     return (
-      <>
-        <h1>key={banner._id}</h1>
-        <h2>{banner.name}</h2>
-        <h3>{banner.title}</h3>
-        <h4>{banner.description}</h4>
-        <h5>{banner.image_url}</h5>
-      </>
+      <div key={index}>
+          <h1>key={banner._id}</h1>
+          <h2>{banner.name}</h2>
+          <h3>{banner.title}</h3>
+          <h4>{banner.description}</h4>
+          <img src={banner.imageUrl} alt={banner.titler}></img>
+      
+      </div>
     )
   })
-*/
-
-  const [state, dispatch] = React.useReducer(slidesReducer, initialState);
 
   return (
     <div className="flex flex-col">
@@ -235,17 +129,7 @@ const Homepage = () => {
 
         <div id="tabs" className="text-center flex flex-col container mb-20 px-20 text-gray-300">
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
-            {/*theBanner*/}
-
-            <div className="slides">
-              <button onClick={() => dispatch({ type: "PREV" })}>‹</button>
-
-              {[...apiEndpoint, ...apiEndpoint, ...apiEndpoint].map((slide, i) => {
-                let offset = apiEndpoint.length + (state.slideIndex - i);
-                return <Slide slide={slide} offset={offset} key={i} />;
-              })}
-              <button onClick={() => dispatch({ type: "NEXT" })}>›</button>
-            </div>
+            {theBanner}  
           </h2>
         </div>
 
