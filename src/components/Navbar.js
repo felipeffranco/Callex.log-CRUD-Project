@@ -29,7 +29,7 @@ function Navbar() {
             </Link>
           </div>
           <div className="mt-4 sm:mt-2 sm:mr-4 mr-0">
-            <Link to="/admin" className="text-sm uppercase text-emerald-300 hover:bg-emerald-600 hover:text-white border-solid border p-1.5 sm:p-2 sm:px-8 rounded-xl border-emerald-300 hover:border-emerald-600 transition-all ease-linear">
+            <Link to="/sign-in" className="text-sm uppercase text-emerald-300 hover:bg-emerald-600 hover:text-white border-solid border p-1.5 sm:p-2 sm:px-8 rounded-xl border-emerald-300 hover:border-emerald-600 transition-all ease-linear">
               Login
             </Link>
           </div>

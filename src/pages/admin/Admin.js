@@ -5,11 +5,13 @@ import AboutUs from './AboutUs/AboutUs'
 import Containers from './Containers/Containers'
 import Services from './Services/Services'
 import Profile from './Profile/Profile'
+import Login from './Login/Login'
 
 const Admin = () => {
     return (
         <>
             <Routes>
+                <Route path='/sign-in' element={<Login />} />
                 <Route path="/admin" element={<Dashboard />} />
                 <Route path="/admin/:itemId/edit" element={<Dashboard />} />
                 <Route path="/admin/about-us" element={<AboutUs />} />
