@@ -9,7 +9,7 @@ import { userNavigation } from '../DB/userNavigation'
 
 const Navbar = () => {
 
-    const [clicked, setClicked] = useState()
+// const [clicked, setClicked] = useState()
 
     return (
         <>
@@ -27,10 +27,11 @@ const Navbar = () => {
                                             </Link>
                                         </div>
                                         <div className="hidden md:block">
-                                            <div className="ml-10 items-baseline space-x-4">
+                                            <div
+                                                className="ml-10 items-baseline space-x-4">
                                                 {navigation.map((item) => (
                                                     <Link
-                                                        key={item.name}
+                                                        key={item.id}
                                                         to={item.to}
                                                         className='text-gray-300 font-medium rounded-md py-2 px-4 hover:bg-emerald-300 hover:text-black'
                                                     >
