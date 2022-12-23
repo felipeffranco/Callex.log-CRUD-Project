@@ -24,7 +24,7 @@ const Login = () => {
                                 <input
                                     name="email"
                                     type="email"
-                                    className="form-input border-none focus:outline-none block w-full p-3 rounded-md bg-gray-900 bg-opacity-40 placeholder-gray-700 text-white"
+                                    className="form-input border-none focus:outline-none block w-full p-3 rounded-md bg-gray-900 bg-opacity-40 placeholder-gray-700 text-white mb-4"
                                     placeholder="Email address"
                                 />
                             </div>
