@@ -15,7 +15,8 @@ const Login = () => {
                             Sign in with your Administrator account
                         </h2>
                     </div>
-                    <form className="mt-8 space-y-6" action="#" method="POST">
+                    <form
+                        className="mt-8 space-y-6">
                         <div className="-space-y-px rounded-md shadow-sm">
                             <div>
                                 <label htmlFor="email-address" className="sr-only">
@@ -41,17 +42,15 @@ const Login = () => {
                             </div>
                         </div>
                         <div>
-                            <Link to='/admin'>
-                                <button
-                                    type="submit"
-                                    className="group relative flex w-full justify-center rounded-md border border-transparent bg-emerald-300 py-2 px-4 text-lg font-medium text-black hover:bg-emerald-400"
-                                >
-                                    <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                                        <LockClosedIcon className="h-5 w-5 text-emerald-500 group-hover:text-emerald-300" aria-hidden="true" />
-                                    </span>
-                                    Sign in
-                                </button>
-                            </Link>
+                            <button
+                                type="submit"
+                                className="group relative flex w-full justify-center rounded-md border border-transparent bg-emerald-300 py-2 px-4 text-lg font-medium text-black hover:bg-emerald-400"
+                            >
+                                <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                                    <LockClosedIcon className="h-5 w-5 text-emerald-500 group-hover:text-emerald-300" aria-hidden="true" />
+                                </span>
+                                Sign in
+                            </button>
                         </div>
                     </form>
                 </div>
