@@ -5,11 +5,6 @@ export const navigation = [
     to: '/admin'
   },
   {
-    id: '1',
-    name: 'About Us',
-    to: '/admin/about-us'
-  },
-  {
     id: '2',
     name: 'Containers',
     to: '/admin/containers'
