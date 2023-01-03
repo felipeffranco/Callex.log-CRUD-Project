@@ -33,6 +33,7 @@ function Navbar() {
               Admin
             </Link>
           </div>
+          { /* }
           <div className="py-1 mt-1 hidden sm:block">
             <Switch
               checked={enabled}
@@ -48,6 +49,7 @@ function Navbar() {
               />
             </Switch>
           </div>
+          { */ } 
         </nav>
       </div>
     </div>
