@@ -3,13 +3,10 @@ import React from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
-import { navigation } from '../DB/navigation'
 import { user } from '../DB/user'
 import { userNavigation } from '../DB/userNavigation'
 
 const Navbar = () => {
-
-// const [clicked, setClicked] = useState()
 
     return (
         <>
@@ -20,25 +17,14 @@ const Navbar = () => {
                             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                                 <div className="flex h-16 items-center justify-between">
                                     <div className="flex items-center">
-                                        <div className="flex-shrink-0">
-                                            <Link to="/admin" className="text-3xl font-bold text-white mr-8 flex-none">
+                                        <div className="flex-shrink-0 flex justify-center items-center">
+                                            <Link to="/admin" className="text-3xl font-bold text-white mr-4 flex-none cursor-default">
                                                 callex
-                                                <span className="text-emerald-300">.log</span>
+                                                <span className="text-emerald-300 cursor-default">.log</span>
                                             </Link>
+                                            <span class="bg-gray-900 text-emerald-300 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-blue-400 border border-emerald-300 cursor-default">Admin</span>
                                         </div>
                                         <div className="hidden md:block">
-                                            <div
-                                                className="ml-10 items-baseline space-x-4">
-                                                {navigation.map((item) => (
-                                                    <Link
-                                                        key={item.id}
-                                                        to={item.to}
-                                                        className='text-gray-300 font-medium rounded-md py-2 px-4 hover:bg-emerald-300 hover:text-black'
-                                                    >
-                                                        {item.name}
-                                                    </Link>
-                                                ))}
-                                            </div>
                                         </div>
                                     </div>
                                     <div className="hidden md:block">
@@ -91,18 +77,6 @@ const Navbar = () => {
                                 </div>
                             </div>
                             <Disclosure.Panel className="sm:hidden">
-                                <div className="flex flex-col space-y-1 px-2 pt-2 pb-3 sm:px-3 ">
-                                    {navigation.map((item) => (
-                                        <Link
-                                            key={item.name}
-                                            as="a"
-                                            to={item.to}
-                                            className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-emerald-300 hover:text-black cursor-pointer"
-                                        >
-                                            {item.name}
-                                        </Link>
-                                    ))}
-                                </div>
                                 <div className="border-t border-gray-700 pt-4 pb-3">
                                     <div className="flex items-center px-5">
                                         <div className="flex-shrink-0">

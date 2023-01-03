@@ -1,6 +1,6 @@
 export const userNavigation = [
     {
-        name: 'Sign out',
+        name: 'Exit',
         to: '/'
     },
 ]
