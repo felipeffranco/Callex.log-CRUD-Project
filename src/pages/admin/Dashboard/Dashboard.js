@@ -3,6 +3,8 @@ import Navbar from "../Navbar/Navbar"
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { useNavigate, Link, useParams } from "react-router-dom"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Dashboard = () => {
 
@@ -59,6 +61,7 @@ const Dashboard = () => {
 
         axios.post(`${process.env.REACT_APP_API_URL}/CL_homepage`, newForm)
             .then(response => {
+                toast("Item salvo com sucesso! 🎊")
                 navigate('/admin')
                 setRefresh(!refresh)
             })
@@ -91,7 +94,7 @@ const Dashboard = () => {
 
         axios.put(`${process.env.REACT_APP_API_URL}/CL_homepage/${itemId}`, updatedItem)
             .then(response => {
-                alert('Update Successfull')
+                toast("Item editado com sucesso! 🎊")
                 setRefresh(!refresh)
             })
             .catch(err => console.log(err))
@@ -202,9 +205,22 @@ const Dashboard = () => {
                                             <button
                                                 type="button"
                                                 onClick={editButton}
-                                                className='text-black font-medium rounded-md mb-3 mr-3 py-2 px-4 bg-blue-300 hover:bg-blue-200'
+                                                className='text-black font-medium rounded-md mb-3 mr-3 py-2 px-4 bg-purpleBottom-300 hover:bg-purpleBottom-200'
                                             >
                                                 Save Edit
+                                                <ToastContainer
+                                                    position="bottom-left"
+                                                    autoClose={3000}
+                                                    limit={1}
+                                                    hideProgressBar={false}
+                                                    newestOnTop={false}
+                                                    closeOnClick={false}
+                                                    rtl={false}
+                                                    pauseOnFocusLoss={false}
+                                                    draggable
+                                                    pauseOnHover={false}
+                                                    theme="dark"
+                                                />
                                             </button>
                                         </div>
                                         <button
@@ -213,6 +229,19 @@ const Dashboard = () => {
                                             className='text-black font-medium rounded-md mb-3 mr-3 py-2 px-4 bg-emerald-300 hover:bg-emerald-200'
                                         >
                                             Save new item
+                                            <ToastContainer
+                                                position="bottom-left"
+                                                autoClose={3000}
+                                                limit={1}
+                                                hideProgressBar={false}
+                                                newestOnTop={false}
+                                                closeOnClick={false}
+                                                rtl={false}
+                                                pauseOnFocusLoss={false}
+                                                draggable
+                                                pauseOnHover={false}
+                                                theme="dark"
+                                            />
                                         </button>
                                     </div>
                                 </form>
@@ -271,14 +300,14 @@ const Dashboard = () => {
                                                                     <Link to={`/admin/${item._id}/edit`}>
                                                                         <button
                                                                             type="submit"
-                                                                            className='text-black font-medium rounded-md mb-3 py-2 px-4 bg-blue-300 hover:bg-blue-200'
+                                                                            className='text-black font-medium rounded-md mb-3 py-2 px-4 bg-purpleBottom-300 hover:bg-purpleBottom-200'
                                                                         >
                                                                             Edit
                                                                         </button>
                                                                     </Link>
                                                                     <button
                                                                         type="submit"
-                                                                        className='text-black font-medium rounded-md mb-3 py-2 px-4 bg-red-300 hover:bg-red-200'
+                                                                        className='text-black font-medium rounded-md mb-3 py-2 px-4 bg-red-500 hover:bg-red-400'
                                                                         onClick={() => deleteButton(item._id)}>
                                                                         Delete
                                                                     </button>
