@@ -96,7 +96,7 @@ function AboutUs() {
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
             Santos
           </h2>
-          <p className="text-gray-500 mb-4 h-12">
+          <p className="text-gray-500 mb-4">
             Rua Brás Cubas, 37 – 4º andar – cj 43 – Centro - Santos – SP
           </p>
           <div className="h-80">

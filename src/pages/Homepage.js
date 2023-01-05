@@ -33,10 +33,10 @@ const Homepage = () => {
     else {
       return (
         <>
-          <div key={banner._id} className="flex flex-col flex-auto mb-10 mr-4">
-            <div className="w-28 sm:w-96 h-24 sm:h-56 bg-cover mb-4 rounded-lg hover:grayscale" style={{backgroundImage: `url(${banner.imageUrl})`}}></div>
+          <div key={banner._id} className="flex flex-col flex-auto flex-wrap gap-24 gap-y-1">
+            <img className="w-28 sm:w-96 h-24 sm:h-56 bg-cover mb-4 rounded-lg hover:grayscale border-0" alt="img" src={banner.imageUrl}></img>
             <h2 className="font-bold text-2xl text-emerald-300 mb-1">
-              {banner.name}
+              {banner.title}
             </h2>
             <p className="text-sm">
               {banner.description}
@@ -70,7 +70,7 @@ const Homepage = () => {
           </h2>
           <Link
             className="mt-12 sm:px-24 px-14 sm:py-6 py-4 sm:text-2xl text-lg rounded-xl bg-gradient-to-r from-lime-200 to-emerald-400 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-lime-200 transition-all ease-linear"
-            to="/modal"
+            to="#"
           >
             Talk with us
           </Link>
@@ -142,13 +142,13 @@ const Homepage = () => {
           </h2>
         </div>
 
-        <div id="tabs" className="text-left flex flex-row container flex-wrap mb-20 px-4 text-gray-300 sm:px-20">
+        <div id="tabs" className="text-left flex flex-row container flex-wrap mb-40 px-4 text-gray-300 sm:px-20">
           {theBanner}
         </div>
 
-        <div className="flex container mb-32 px-20 flex-wrap sm:flex-nowrap">
+        <div className="flex container flex-wrap gap-24 gap-y-12 px-20 mb-12">
 
-          <div className="flex flex-col mr-10 mb-10 flex-auto">
+          <div className="flex flex-col mr-10 mb-10 flex-1">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
               Fastest delivery<br></br> in Brazil
             </h2>
@@ -157,7 +157,7 @@ const Homepage = () => {
             </p>
           </div>
           
-          <div className="flex flex-col mr-10 mb-10">
+          <div className="flex flex-col mr-10 mb-10 flex-1">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
               Professional service
             </h2>
@@ -166,7 +166,7 @@ const Homepage = () => {
             </p>
           </div>
           
-          <div className="flex flex-col mr-10 mb-10">
+          <div className="flex flex-col mr-10 mb-10 flex-1">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
               Biggest ships<br></br>of the world
             </h2>
@@ -175,7 +175,7 @@ const Homepage = () => {
             </p>
           </div>
           
-          <div className="flex flex-col">
+          <div className="flex flex-col flex-1">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
               Full ship<br></br>service
             </h2>
