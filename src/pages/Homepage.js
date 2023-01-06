@@ -33,7 +33,7 @@ const Homepage = () => {
     else {
       return (
         <>
-          <div key={banner._id} className="flex flex-col flex-1 flex-wrap gap-24 gap-y-1 mb-10">
+          <div key={banner._id} className="flex flex-col flex-wrap gap-24 gap-y-1 mb-10 w-60">
             <img className="w-28 sm:w-96 h-24 sm:h-56 bg-cover mb-4 rounded-lg hover:grayscale border-0" alt="img" src={banner.imageUrl}></img>
             <h2 className="font-bold text-2xl text-emerald-300 mb-1">
               {banner.title}
