@@ -142,7 +142,7 @@ const Homepage = () => {
           </h2>
         </div>
 
-        <div id="tabs" className="flex flex-wrap gap-24 gap-y-12 container text-white mb-32">
+        <div id="tabs" className="flex flex-wrap gap-24 gap-y-12 container text-white mb-32 px-20">
           {theBanner}
         </div>
 
