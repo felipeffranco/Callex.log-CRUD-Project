@@ -10,6 +10,10 @@ module.exports = {
         'bgPrimary': '#08090D',
         'bgSecondary': '#29293A',
         'bgTertiary': '#282F33',
+        'purpleBottom': {
+          200: '#D3A5FF',
+          300: '#BB86FC',
+        }
       },
     },
     fontFamily: {
