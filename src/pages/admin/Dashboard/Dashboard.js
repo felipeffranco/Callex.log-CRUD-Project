@@ -95,6 +95,7 @@ const Dashboard = () => {
         axios.put(`${process.env.REACT_APP_API_URL}/CL_homepage/${itemId}`, updatedItem)
             .then(response => {
                 toast("Item editado com sucesso! 🎊")
+                navigate('/admin')
                 setRefresh(!refresh)
             })
             .catch(err => console.log(err))
