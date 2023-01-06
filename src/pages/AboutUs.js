@@ -9,7 +9,7 @@ import Trusted6 from "./img/about-us.jpg";
 
 const AnyReactComponent = ({ text }) => (
   <div style={{
-    color: 'white', 
+    color: 'white',
     background: 'grey',
     padding: '15px 10px',
     display: 'inline-flex',
@@ -25,22 +25,22 @@ const AnyReactComponent = ({ text }) => (
 
 let defaultProps1 = {
   center: {
-    lat: -23.5806931,
-    lng: -46.6386865,
+    lat: -23.561661566012035,
+    lng: -46.65304947545762,
   },
   zoom: 15,
-  city: 'Callex.log São Paulo' 
+  city: 'Callex.log São Paulo'
 }
 
-let defaultProps2 = {
-  center: {
-    lat: -23.938524,
-    lng: -46.32471229999999,
-  },
-  zoom: 15,
-  city: 'Callex.log Santos' 
-}
-  
+  let defaultProps2 = {
+    center: {
+      lat: 25.775758919574077,
+      lng: -80.18824322175054,
+    },
+    zoom: 15,
+    city: 'Callex.log Santos'
+  }
+
 function AboutUs() {
   return (
     <div className="flex flex-col">
@@ -76,38 +76,38 @@ function AboutUs() {
             São Paulo
           </h2>
           <p className="text-gray-500 mb-4">
-            Rua Vergueiro, 2045 – 13º andar – cjs 1304 /1306 – Vila Mariana - São Paulo – SP
+            Alameda Rio Claro, 241 - Bela Vista, São Paulo - SP, 01332-010
           </p>
           <div className="h-80">
             <GoogleMapReact
               defaultCenter={defaultProps1.center}
               defaultZoom={defaultProps1.zoom}
             >
-              <AnyReactComponent 
-                lat={defaultProps1.center.lat} 
-                lng={defaultProps1.center.lng} 
-                text={defaultProps1.city} 
+              <AnyReactComponent
+                lat={defaultProps1.center.lat}
+                lng={defaultProps1.center.lng}
+                text={defaultProps1.city}
               />
             </GoogleMapReact>
           </div>
         </div>
-          
+
         <div className="flex flex-1 flex-col">
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
-            Santos
+            Miami
           </h2>
           <p className="text-gray-500 mb-4">
-            Rua Brás Cubas, 37 – 4º andar – cj 43 – Centro - Santos – SP
+            111 NE 1st St 8th Floor, Miami, FL 33132, Estados Unidos
           </p>
           <div className="h-80">
             <GoogleMapReact
               defaultCenter={defaultProps2.center}
               defaultZoom={defaultProps2.zoom}
             >
-              <AnyReactComponent 
-                lat={defaultProps2.center.lat} 
-                lng={defaultProps2.center.lng} 
-                text={defaultProps2.city} 
+              <AnyReactComponent
+                lat={defaultProps2.center.lat}
+                lng={defaultProps2.center.lng}
+                text={defaultProps2.city}
               />
             </GoogleMapReact>
           </div>

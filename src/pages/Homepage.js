@@ -33,7 +33,7 @@ const Homepage = () => {
     else {
       return (
         <>
-          <div key={banner._id} className="flex flex-col flex-auto flex-wrap gap-24 gap-y-1">
+          <div key={banner._id} className="flex flex-col flex-1 flex-wrap gap-24 gap-y-1 mb-10">
             <img className="w-28 sm:w-96 h-24 sm:h-56 bg-cover mb-4 rounded-lg hover:grayscale border-0" alt="img" src={banner.imageUrl}></img>
             <h2 className="font-bold text-2xl text-emerald-300 mb-1">
               {banner.title}
@@ -142,7 +142,7 @@ const Homepage = () => {
           </h2>
         </div>
 
-        <div id="tabs" className="text-left flex flex-row container flex-wrap mb-40 px-4 text-gray-300 sm:px-20">
+        <div id="tabs" className="flex flex-wrap gap-24 gap-y-12 container text-white mb-32">
           {theBanner}
         </div>
 
