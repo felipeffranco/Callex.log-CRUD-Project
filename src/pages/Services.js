@@ -26,18 +26,21 @@ function Services() {
     else {
       return (
         <>
-
-          <div key={banner._id} className="p-4 w-5/12">
-            <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-              <img alt="team" className="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src={banner.imageUrl} />
-              <div className="flex-grow sm:pl-8">
-                <h2 className="font-bold text-2xl text-emerald-300 mb-1">
+          <div key={banner._id} className="group relative">
+            <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
+              <img
+                src={banner.imageUrl}
+                alt={banner.title}
+                className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              />
+            </div>
+            <div className="mt-4 flex flex-col justify-between">
+              <div className='flex flex-auto'>
+                <h3 className="font-bold text-2xl text-emerald-300 mb-1">
                   {banner.title}
-                </h2>
-                <p className="mb-4 text-white">
-                  {banner.description}
-                </p>
+                </h3>
               </div>
+              <p className="text-md font-medium">{banner.description}</p>
             </div>
           </div>
         </>
@@ -46,13 +49,14 @@ function Services() {
   })
 
   return (
+
     <div className="flex flex-col">
       <Navbar />
       <div className="flex min-h-screen">
         <div className="flex flex-col items-center container mt-5 px-10">
           <div className="container px-2 py-12 mx-auto">
-            <div className="flex flex-col text-center w-full mb-20">
-              <h2 className="sm:text-6xl text-3xl font-bold text-white text-center leading-tight mb-4">
+            <div className="flex flex-col text-center w-full mb-8">
+              <h2 className="sm:text-6xl text-3xl font-bold text-white text-center leading-tight mb-8">
                 Our {" "}
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-lime-200 to-emerald-400">
                   services
@@ -62,10 +66,14 @@ function Services() {
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
               </p>
             </div>
-            <div className="flex flex-wrap gap-24 gap-y-12">
-              {
-                theBanner
-              }
+            <div className='text-white'>
+              <div className="mx-auto max-w-2xl py-4 px-4 sm:py-8 sm:px-6 lg:max-w-full lg:px-8">
+                <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-12">
+                  {
+                    theBanner
+                  }
+                </div>
+              </div>
             </div>
           </div>
         </div>
