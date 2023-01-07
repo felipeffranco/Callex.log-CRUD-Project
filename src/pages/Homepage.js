@@ -17,32 +17,38 @@ const apiEndpoint = "https://ironrest.cyclic.app/CL_homepage";
 
 const Homepage = () => {
   const [banners, setBanners] = useState([])
- 
-  useEffect(() =>{
+
+  useEffect(() => {
     const apiCall = async () => {
-        const res = await axios.get(apiEndpoint)
-        setBanners(res.data)            
+      const res = await axios.get(apiEndpoint)
+      setBanners(res.data)
     }
     apiCall()
   }, [])
 
-  const theBanner = banners.map((banner) => { 
-    if(banner.imageUrl === "") { 
-      return null; 
+  const theBanner = banners.map((banner) => {
+    if (banner.imageUrl === "") {
+      return null;
     }
     else {
       return (
-        <>
-          <div key={banner._id} className="flex flex-col flex-wrap gap-24 gap-y-1 mb-10 w-60">
-            <img className="w-28 sm:w-96 h-24 sm:h-56 bg-cover mb-4 rounded-lg hover:grayscale border-0" alt="img" src={banner.imageUrl}></img>
-            <h2 className="font-bold text-2xl text-emerald-300 mb-1">
-              {banner.title}
-            </h2>
-            <p className="text-sm">
-              {banner.description}
-            </p> 
+        <div key={banner._id} className="group relative">
+          <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
+            <img
+              src={banner.imageUrl}
+              alt={banner.title}
+              className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+            />
           </div>
-        </>
+          <div className="mt-4 flex flex-col justify-between">
+            <div className='flex flex-auto'>
+              <h3 className="font-bold text-2xl text-emerald-300 mb-1">
+                {banner.title}
+              </h3>
+            </div>
+            <p className="text-md font-medium">{banner.description}</p>
+          </div>
+        </div>
       )
     }
   })
@@ -142,50 +148,63 @@ const Homepage = () => {
           </h2>
         </div>
 
-        <div id="tabs" className="flex flex-wrap gap-24 gap-y-12 container text-white mb-32 px-20">
-          {theBanner}
+        <div className='text-white'>
+          <div className="mx-auto max-w-2xl py-4 px-4 sm:py-8 sm:px-6 lg:max-w-full lg:px-8">
+            <div className="mb-32 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-12">
+              {
+                theBanner
+              }
+            </div>
+          </div>
         </div>
 
-        <div className="flex container flex-wrap gap-24 gap-y-12 px-20 mb-12">
-
-          <div className="flex flex-col mr-10 mb-10 flex-1">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
-              Fastest delivery<br></br> in Brazil
-            </h2>
-            <p className="text-gray-500">
-              The walnut wood card tray is precision milled to perfectly fit a stack of Focus cards. 
-            </p>
-          </div>
-          
-          <div className="flex flex-col mr-10 mb-10 flex-1">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
-              Professional service
-            </h2>
-            <p className="text-gray-500">
-            The service demands experience, ingenuity and professionalism from every level of management.
-            </p>
-          </div>
-          
-          <div className="flex flex-col mr-10 mb-10 flex-1">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
-              Biggest ships<br></br>of the world
-            </h2>
-            <p className="text-gray-500">
-              The walnut wood card tray is precision milled to perfectly fit a stack of Focus cards. 
-            </p>
-          </div>
-          
-          <div className="flex flex-col flex-1">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-2">
-              Full ship<br></br>service
-            </h2>
-            <p className="text-gray-500">
-            The service demands experience, ingenuity and professionalism from every level of management.
-            </p>
+        <div className='text-white'>
+          <div className="mx-auto max-w-2xl py-4 px-4 sm:py-8 sm:px-6 lg:max-w-full lg:px-8">
+            <div className="mb-32 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-12">
+              <div className="group relative">
+                <div className="mt-4 flex flex-col justify-between">
+                  <div className='flex flex-auto'>
+                    <h3 className="font-bold text-4xl text-white mb-5">
+                      Fastest delivery in Brazil
+                    </h3>
+                  </div>
+                  <p className="text-md font-medium">The walnut wood card tray is precision milled to perfectly fit a stack of Focus cards.</p>
+                </div>
+              </div>
+              <div className="group relative">
+                <div className="mt-4 flex flex-col justify-between">
+                  <div className='flex flex-auto'>
+                    <h3 className="font-bold text-4xl text-white mb-5">
+                      Professional service
+                    </h3>
+                  </div>
+                  <p className="text-md font-medium">The service demands experience, ingenuity and professionalism from every level of management.</p>
+                </div>
+              </div>
+              <div className="group relative">
+                <div className="mt-4 flex flex-col justify-between">
+                  <div className='flex flex-auto'>
+                    <h3 className="font-bold text-4xl text-white mb-5">
+                      Biggest ships of the world
+                    </h3>
+                  </div>
+                  <p className="text-md font-medium">The walnut wood card tray is precision milled to perfectly fit a stack of Focus cards.</p>
+                </div>
+              </div>
+              <div className="group relative">
+                <div className="mt-4 flex flex-col justify-between">
+                  <div className='flex flex-auto'>
+                    <h3 className="font-bold text-4xl text-white mb-5">
+                      Full ship service
+                    </h3>
+                  </div>
+                  <p className="text-md font-medium">The service demands experience, ingenuity and professionalism from every level of management.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );

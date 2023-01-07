@@ -10,8 +10,8 @@ function Containers() {
       <div className="flex min-h-screen">
         <div className="flex flex-col items-center container mt-5 px-10">
           <div className="container px-2 py-12 mx-auto">
-            <div className="flex flex-col text-center w-full mb-20">
-              <h2 className="sm:text-6xl text-3xl font-bold text-white text-center leading-tight mb-4">
+            <div className="flex flex-col text-center w-full mb-10">
+              <h2 className="sm:text-6xl text-3xl font-bold text-white text-center leading-tight mb-8">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-lime-200 to-emerald-400">
                   Containers
                 </span>
