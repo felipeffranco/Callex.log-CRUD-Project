@@ -80,6 +80,7 @@ const Dashboard = () => {
         setTitle('')
         setDescription('')
         setImageUrl('')
+        navigate('/admin')
     }
 
     const editButton = e => {
