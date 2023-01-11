@@ -33,7 +33,7 @@ function Navbar() {
             </div>
             <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12">
               {navigationHome.map((item) => (
-                <Link key={item.name} to={item.to} className="text-sm text-white mr-4 hover:text-emerald-300 hover:border-b-2 hover:border-emerald-300 transition-all ease-linear">
+                <Link key={item.name} to={item.to} className="text-sm text-gray-400 mr-4 hover:text-emerald-300 hover:border-b-2 hover:border-emerald-300 transition-all ease-linear">
                   {item.name}
                 </Link>
               ))}
