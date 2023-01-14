@@ -130,9 +130,8 @@ const Dashboard = () => {
                         <div className="sm:grid sm:grid-cols-3 sm:gap-6">
                             <div className="sm:col-span-1">
                                 <div className="px-4 sm:px-0">
-                                    <h3 className="text-4xl leading-6 text-emerald-300">Home Page</h3>
                                     <p className="mt-6 mb-6 text-lg text-white">
-                                        This page will be able to edit all the informations about the Home Page as like, title, description and image.
+                                        This page will be able to edit all the informations about the Services as like, title, description and image.
                                     </p>
                                 </div>
                             </div>
