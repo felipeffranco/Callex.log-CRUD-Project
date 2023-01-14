@@ -5,6 +5,7 @@ import axios from "axios"
 import { useNavigate, Link, useParams } from "react-router-dom"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {GrView} from 'react-icons/gr'
 
 const Dashboard = () => {
 
@@ -61,7 +62,7 @@ const Dashboard = () => {
 
         axios.post(`${process.env.REACT_APP_API_URL}/CL_homepage`, newForm)
             .then(response => {
-                toast("Item salvo com sucesso! 🎊")
+                toast("New item successfully saved! ✅")
                 navigate('/admin')
                 setRefresh(!refresh)
             })
@@ -95,7 +96,7 @@ const Dashboard = () => {
 
         axios.put(`${process.env.REACT_APP_API_URL}/CL_homepage/${itemId}`, updatedItem)
             .then(response => {
-                toast("Item editado com sucesso! 🎊")
+                toast("Item successfully edited! ✅")
                 navigate('/admin')
                 setRefresh(!refresh)
             })
@@ -111,9 +112,14 @@ const Dashboard = () => {
     const deleteButton = itemId => {
         axios.delete(`${process.env.REACT_APP_API_URL}/CL_homepage/${itemId}`)
             .then(response => {
+                toast("Item successfully deleted! ✅")
                 setRefresh(!refresh)
             })
             .catch(err => console.log(err))
+    }
+
+    const viewButton = () => {
+        navigate('/services')
     }
 
     return (
@@ -130,9 +136,8 @@ const Dashboard = () => {
                         <div className="sm:grid sm:grid-cols-3 sm:gap-6">
                             <div className="sm:col-span-1">
                                 <div className="px-4 sm:px-0">
-                                    <h3 className="text-4xl leading-6 text-emerald-300">Home Page</h3>
                                     <p className="mt-6 mb-6 text-lg text-white">
-                                        This page will be able to edit all the informations about the Home Page as like, title, description and image.
+                                        This page will be able to edit all the informations about the Services as like, title, description and image.
                                     </p>
                                 </div>
                             </div>
@@ -149,7 +154,7 @@ const Dashboard = () => {
                                                     id="name"
                                                     value={name}
                                                     onChange={e => setName(e.target.value)}
-                                                    className="form-input border-none focus:outline-none block w-full p-3 rounded-md bg-gray-900 bg-opacity-40 placeholder-gray-700 text-white"
+                                                    className="form-input border-transparent focus:border-emerald-500 focus:ring-0 block w-full p-3 rounded-md bg-gray-900 bg-opacity-40 placeholder-gray-700 text-white"
                                                     placeholder="Enter your name" />
                                             </label>
                                         </div>
@@ -163,7 +168,7 @@ const Dashboard = () => {
                                                     id="title"
                                                     value={title}
                                                     onChange={e => setTitle(e.target.value)}
-                                                    className="form-input border-none focus:outline-none block w-full p-3 rounded-md bg-gray-900 bg-opacity-40 placeholder-gray-700 text-white"
+                                                    className="form-input border-transparent focus:border-emerald-500 focus:ring-0 block w-full p-3 rounded-md bg-gray-900 bg-opacity-40 placeholder-gray-700 text-white"
                                                     placeholder="Enter your new title..." />
                                             </label>
                                         </div>
@@ -177,7 +182,7 @@ const Dashboard = () => {
                                                     id="description"
                                                     value={description}
                                                     onChange={e => setDescription(e.target.value)}
-                                                    className="form-input border-none focus:outline-none block w-full p-3 mb-5 rounded-md bg-gray-900 bg-opacity-40 placeholder-gray-700 text-white"
+                                                    className="form-input border-transparent focus:border-emerald-500 focus:ring-0 block w-full p-3 mb-5 rounded-md bg-gray-900 bg-opacity-40 placeholder-gray-700 text-white"
                                                     placeholder="Enter your new description..." />
                                             </label>
                                         </div>
@@ -190,7 +195,7 @@ const Dashboard = () => {
                                                 id="website-admin"
                                                 value={imageUrl}
                                                 onChange={e => setImageUrl(e.target.value)}
-                                                className="w-full border-none rounded-none focus:outline-none rounded-r-lg bg-gray-900 bg-opacity-40 placeholder-gray-700 text-white"
+                                                className="w-full border-transparent focus:border-emerald-500 focus:ring-0 rounded-r-md bg-gray-900 bg-opacity-40 placeholder-gray-700 text-white"
                                                 placeholder="https://example.com"
                                             />
                                         </div>
@@ -282,7 +287,7 @@ const Dashboard = () => {
                                             return (
                                                 <>
                                                     <tbody>
-                                                        <tr className="text-white font-bold dark:bg-gray-900 dark:border-gray-700 hover:bg-gray-800 bg-opacity-40 hover:text-black dark:hover:bg-gray-600">
+                                                        <tr className="text-white font-bold dark:bg-gray-900 dark:border-gray-700 hover:bg-gray-900 hover:bg-opacity-50 bg-opacity-40 hover:text-white dark:hover:bg-gray-600">
                                                             <th scope="row" className="py-4 px-6 font-bold dark:text-white">
                                                                 {item.name}
                                                             </th>
@@ -312,6 +317,12 @@ const Dashboard = () => {
                                                                         className='text-black font-medium rounded-md mb-3 py-2 px-4 bg-red-500 hover:bg-red-400'
                                                                         onClick={() => deleteButton(item._id)}>
                                                                         Delete
+                                                                    </button>
+                                                                    <button
+                                                                        type="submit"
+                                                                        className='text-white font-medium rounded-md mb-3 py-2 px-4 bg-gray-900 hover:bg-gray-800'
+                                                                        onClick={viewButton}>
+                                                                        View
                                                                     </button>
                                                                 </div>
                                                             </td>
