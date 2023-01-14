@@ -57,7 +57,7 @@ function Containers() {
                 <tbody>
                   {
                     containers.map((item) => (
-                      <tr className="text-white font-bold dark:bg-gray-900 dark:border-gray-700 hover:bg-gray-800 bg-opacity-40 hover:text-black dark:hover:bg-gray-600">
+                      <tr className="text-white font-bold dark:bg-gray-900 dark:border-gray-700 bg-opacity-40 hover:text-white hover:bg-gray-900 hover:bg-opacity-50 dark:hover:bg-gray-600">
                         <td className="py-4 px-6 font-medium">
                           {item.date}
                         </td>
